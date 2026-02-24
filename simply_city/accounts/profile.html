@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>Profile - Simply City</title></head>
+<body>
+  <h2>Welcome, {{ user.username }}</h2>
+  <p>Email: {{ user.email }}</p>
+  <p>Phone: {{ user.phone_number }}</p>
+  <p>Driver Account: {{ user.is_driver|yesno:"Yes,No" }}</p>
+  <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
