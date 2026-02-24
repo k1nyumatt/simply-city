@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simply City - Drop Off Zones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; }
+
+    #header {
+      background-color: #1a73e8;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    #header h1 { font-size: 24px; }
+    #header p { font-size: 13px; margin-top: 4px; opacity: 0.85; }
+
+    #map { 
+      height: calc(100vh - 70px); 
+      width: 100%; 
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header">
+    <h1>Simply City</h1>
+    <p>Legal Drop-Off Zones in Nairobi CBD</p>
+  </div>
+
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Initialize the map centered on Nairobi CBD
+    var map = L.map('map').setView([-1.2864, 36.8172], 15);
+
+    // Load OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Drop-off zones from Django
+    var zones = [
+      {% for zone in zones %}
+      {
+        name: "{{ zone.name }}",
+        description: "{{ zone.description }}",
+        lat: {{ zone.latitude }},
+        lng: {{ zone.longitude }},
+      },
+      {% endfor %}
+    ];
+
+    // Place a pin for each zone
+    zones.forEach(function(zone) {
+      L.marker([zone.lat, zone.lng])
+        .addTo(map)
+        .bindPopup(
+          '<b>' + zone.name + '</b><br>' + zone.description
+        );
+    });
+  </script>
+
+</body>
+</html>
