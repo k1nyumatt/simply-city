@@ -3,8 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .models import DropOffZone
 
 def zones_map(request):
-    if request.user.is_authenticated:
-        return redirect('dashboard')
     zones = DropOffZone.objects.filter(is_active=True)
     return render(request, 'mashimo/map.html', {'zones': zones})
 
