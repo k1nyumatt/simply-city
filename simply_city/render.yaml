@@ -5,7 +5,5 @@ services:
     runtime: python
     repo: https://github.com/k1nyumatt/simply-city
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn simply_city.wsgi:application
+    startCommand: uvicorn simply_city.asgi:application --host 0.0.0.0 --port 8000
     autoDeployTrigger: commit
-```
-
