@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simply City - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e94560;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .dashboard-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .welcome {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .welcome-name {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .welcome-name span {
+            color: #e94560;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.6;
+            margin-bottom: 50px;
+        }
+
+        .search-container {
+            position: relative;
+            width: 500px;
+            max-width: 90vw;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 18px 60px 18px 25px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .search-container input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .search-container input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: #e94560;
