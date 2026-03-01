@@ -123,3 +123,6 @@ AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'   # change 'home' to whatever your landing page url name is
 LOGOUT_REDIRECT_URL = 'login'
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
