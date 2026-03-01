@@ -6,5 +6,5 @@ services:
     repo: https://github.com/k1nyumatt/simply-city
     rootDir: simply_city
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn simply_city.wsgi:application
+    startCommand: python -m gunicorn simply_city.wsgi:application
     autoDeployTrigger: commit
